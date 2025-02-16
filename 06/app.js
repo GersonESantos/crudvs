@@ -1,13 +1,22 @@
 const express = require('express');
 const rota_produto = require('./rotas/produtos_rotas');
+// const cors = require("cors");
+const path = require("path")
+const bodyParser = require("body-parser");
 // const mysql = require("mysql2");
 const app = express();
-
+app.use(bodyParser.json());
+// app.use(cors());
 app.get('/', (req, res) => {
   res.write('Ola!');
   res.end()
 });
-
+app.get("/clientes", (req, res) => {
+  db.query("SELECT * FROM cliente", (err, results) => {
+    if (err) throw err;
+    res.json(results);
+  });
+});
 // const db = mysql.createConnection({
 //   host: "localhost",
 //   user: "root",
