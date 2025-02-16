@@ -1,4 +1,3 @@
-// 11
 const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
@@ -9,8 +8,8 @@ const path = require("path");
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static("public")); // Servir o HTML
-app.use("/uploads", express.static("uploads")); // Servir imagens
+app.use(express.static("public")); 
+app.use("/uploads", express.static("uploads")); 
 
 const db = mysql.createConnection({
   host: "localhost",
@@ -24,7 +23,7 @@ db.connect(err => {
   console.log("Banco de dados conectado!");
 });
 
-//Configuração do upload de imagens
+// Configuração do upload de imagens
 // const storage = multer.diskStorage({
 //   destination: "./uploads",
 //   filename: (req, file, cb) => {
@@ -67,29 +66,7 @@ app.get("/clientes", (req, res) => {
     res.json(results);
   });
 });
-// Buscar um cliente pelo ID
-app.get("/clientes/:id", (req, res) => {
-  console.log(req.params.id);
-  res.end();
-  // const id = req.params.id;
-  // db.query("SELECT * FROM cliente WHERE id = ?", [id], (err, result) => {
-  //     if (err) {
-  //         console.error("Erro ao buscar cliente:", err);
-  //         return res.status(500).send("Erro ao buscar cliente.");
-  //     }
-  //     if (result.length === 0) {
-  //         return res.status(404).send("Cliente não encontrado.");
-  //     }
-  //     res.json(result[0]); // Retorna o primeiro cliente encontrado
-  // });
-});
-// Deletar cliente
-app.delete("/clientes/:id", (req, res) => {
-  db.query("DELETE FROM cliente WHERE id=?", [req.params.id], (err, result) => {
-    if (err) throw err;
-    res.send("Cliente removido!");
-  });
-});
+
 // Servir o HTML
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
