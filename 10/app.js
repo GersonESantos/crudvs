@@ -35,10 +35,7 @@ const storage = multer.diskStorage({
 
 // Listar clientes
 
-app.get('/', (req, res) => {
-  res.write('Ola!');
-  res.end()
-});
+
 
 app.get("/clientes", (req, res) => {
   db.query("SELECT * FROM cliente", (err, results) => {

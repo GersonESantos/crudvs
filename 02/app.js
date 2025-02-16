@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.write('Ola!');
+  res.write('Ola! prog 02');
   res.end()
 });
 
