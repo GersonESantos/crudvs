@@ -1,7 +1,14 @@
-const express = require('express');
+const express = require("express");
 const mysql = require("mysql2");
-const app = express();
+// const cors = require("cors");
+const bodyParser = require("body-parser");
+// const multer = require("multer");
+const path = require("path");
 
+const app = express();
+// app.use(cors());
+app.use(bodyParser.json());
+// app.use(express.static("uploads"));
 
 const db = mysql.createConnection({
   host: "localhost",
@@ -15,11 +22,29 @@ db.connect(err => {
   console.log("Banco de dados conectado!");
 });
 
-app.get('/', (req, res) => {
-  res.write('Ola!');
-  res.end()
-});
+// Configuração do upload de imagens
+// const storage = multer.diskStorage({
+//   destination: "./uploads",
+//   filename: (req, file, cb) => {
+//     cb(null, Date.now() + path.extname(file.originalname));
+//   }
+// });
 
+// const upload = multer({ storage });
+
+// //Criar cliente
+// app.post("/clientes", upload.single("imagem"), (req, res) => {
+//   const { nome, email, telefone, afinidade } = req.body;
+//   const imagem = req.file ? req.file.filename : null;
+
+//   const sql = "INSERT INTO cliente (nome, email, telefone, afinidade, imagem) VALUES (?, ?, ?, ?, ?)";
+//   db.query(sql, [nome, email, telefone, afinidade, imagem], (err, result) => {
+//     if (err) throw err;
+//     res.send("Cliente cadastrado!");
+//   });
+// });
+
+// Listar clientes
 app.get("/clientes", (req, res) => {
   db.query("SELECT * FROM cliente", (err, results) => {
     if (err) throw err;
@@ -27,6 +52,7 @@ app.get("/clientes", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log('Server is running on http://localhost:3000');
+// Servidor rodando
+app.listen(8080, () => {
+  console.log('Rodando app listening at http://localhost:8080');
 });
