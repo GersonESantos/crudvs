@@ -1,4 +1,5 @@
 
+
         async function carregarClientes() {
             try {
                 const response = await fetch("http://localhost:8080/clientes");
@@ -15,6 +16,11 @@
                         <td>${cliente.telefone}</td>
                         <td>${cliente.afinidade}</td>
                         <td>${cliente.imagem ? `<img src="/uploads/${cliente.imagem}" width="50">` : "Sem imagem"}</td>
+                      <td>
+                    <button type="button" class="btn btn-danger btn-sm btn-excluir" data-id="${cliente.id}">
+                        Excluir
+                    </button>
+                </td>  
                     `;
                     tbody.appendChild(tr);
                 });
