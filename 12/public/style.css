@@ -68,12 +68,3 @@ td img {
     max-width: 50px;
     border-radius: 4px;
 }
-cadcli{
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    width: 80%;
-    font-size: 16px;
-}
