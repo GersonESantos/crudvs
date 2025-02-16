@@ -31,18 +31,7 @@ const storage = multer.diskStorage({
   }
 });
 
-const upload = multer({ storage });
-// Criar cliente
-app.post("/clientes", upload.single("imagem"), (req, res) => {
-  const { nome, email, telefone, afinidade } = req.body;
-  const imagem = req.file ? req.file.filename : null;
-
-  const sql = "INSERT INTO cliente (nome, email, telefone, afinidade, imagem) VALUES (?, ?, ?, ?, ?)";
-  db.query(sql, [nome, email, telefone, afinidade, imagem], (err, result) => {
-    if (err) throw err;
-    res.send("Cliente cadastrado!");
-  });
-});
+ const upload = multer({ storage });
 
 // Listar clientes
 
