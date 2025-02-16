@@ -66,7 +66,13 @@ app.get("/clientes", (req, res) => {
     res.json(results);
   });
 });
-
+// Deletar cliente
+app.delete("/clientes/:id", (req, res) => {
+  db.query("DELETE FROM cliente WHERE id=?", [req.params.id], (err, result) => {
+    if (err) throw err;
+    res.send("Cliente removido!");
+  });
+});
 // Servir o HTML
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
