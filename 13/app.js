@@ -9,6 +9,8 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static("public")); 
+app.use("/uploads", express.static("uploads")); 
+
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",

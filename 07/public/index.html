@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Clientes</title>
-    <link rel="stylesheet" href="style.css">
-    
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
     <h1>Lista de Clientes</h1>
@@ -42,8 +41,8 @@
                         <td>${cliente.email}</td>
                         <td>${cliente.telefone}</td>
                         <td>${cliente.afinidade}</td>
-                        <td>${cliente.imagem ? `<img src="uploads/${cliente.imagem}" alt="Imagem do cliente">` : "Sem imagem"}</td>
-                    `;
+                         <td>${cliente.imagem ? `<img src="uploads/${cliente.imagem}" alt="Imagem do cliente">` : "Sem imagem"}</td>
+                     `;                       
                     tbody.appendChild(tr);
                 });
 

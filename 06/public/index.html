@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Clientes</title>
-    
+    <link rel="stylesheet" href="style.css">   
 </head>
 <body>
-
     <h1>Lista de Clientes</h1>
     <table>
         <thead>
@@ -31,7 +30,6 @@
             try {
                 const response = await fetch("http://localhost:3000/clientes");
                 const clientes = await response.json();
-
                 const tbody = document.getElementById("clientesTable");
                 tbody.innerHTML = ""; // Limpa a tabela
 
@@ -44,7 +42,7 @@
                         <td>${cliente.telefone}</td>
                         <td>${cliente.afinidade}</td>
                         <td>${cliente.imagem ? `<img src="uploads/${cliente.imagem}" alt="Imagem do cliente">` : "Sem imagem"}</td>
-                    `;
+                        `;
                     tbody.appendChild(tr);
                 });
 

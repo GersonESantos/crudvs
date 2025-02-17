@@ -2,7 +2,7 @@ const express = require('express');
 const mysql = require("mysql2");
 const app = express();
 app.use(express.static("public"));
-
+app.use("/uploads", express.static("uploads"));
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -15,10 +15,7 @@ db.connect(err => {
   console.log("Banco de dados conectado!");
 });
 
-// app.get('/', (req, res) => {
-//   res.write('Ola!');
-//   res.end()
-// });
+
 
 app.get("/clientes", (req, res) => {
   db.query("SELECT * FROM cliente", (err, results) => {
