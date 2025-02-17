@@ -3,7 +3,7 @@ const mysql = require("mysql2");
 const app = express();
 
 app.get('/', (req, res) => {
-  res.write('Ola!');
+  res.write('Ola! estou conectado ao banco banco');
   res.end()
 });
 

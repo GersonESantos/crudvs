@@ -15,10 +15,10 @@ db.connect(err => {
   console.log("Banco de dados conectado!");
 });
 
-app.get('/', (req, res) => {
-  res.write('Ola!');
-  res.end()
-});
+// app.get('/', (req, res) => {
+//   res.write('Ola!');
+//   res.end()
+// });
 
 app.get("/clientes", (req, res) => {
   db.query("SELECT * FROM cliente", (err, results) => {

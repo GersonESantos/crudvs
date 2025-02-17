@@ -16,7 +16,7 @@ db.connect(err => {
 });
 
 app.get('/', (req, res) => {
-  res.write('Ola!');
+  res.write('Ola! digite http://localhost:3000/clientes para ver os clientes');
   res.end()
 });
 
