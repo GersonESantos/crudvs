@@ -16,7 +16,7 @@ db.connect(err => {
   console.log("Banco de dados conectado!");
 });
 
-/
+
 
 app.get("/clientes", (req, res) => {
   db.query("SELECT * FROM cliente", (err, results) => {
